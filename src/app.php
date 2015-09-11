@@ -4,7 +4,7 @@ $httpFactory = new Deployable\Services\HttpFactory;
 
 $input = $httpFactory->getInput();
 
-$stateValue = $input->getValue('state');
+$stateValue = $input->getParam('state');
 
 if ($stateValue) {
 

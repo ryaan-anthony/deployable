@@ -13,6 +13,6 @@ class Console extends Input
 
         }
 
-        $this->request = $request;
+        $this->setParams($request);
     }
 }

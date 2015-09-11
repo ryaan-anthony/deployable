@@ -17,14 +17,28 @@ interface Input
      * @param string
      * @return mixed
      */
-    public function getParams($key = null, $default = null);
+    public function getParam($key, $default = null);
 
     /**
      * Set a new param
      *
      * @param $key
-     * @param $param
+     * @param null $param
      */
-    public function setParams($key = null, $param = null);
+    public function setParam($key, $param = null);
+
+    /**
+     * Get all params
+     *
+     * @return array
+     */
+    public function getParams();
+
+    /**
+     * Set all params
+     *
+     * @param array $params
+     */
+    public function setParams(array $params = []);
 
 }

@@ -23,37 +23,40 @@ abstract class Input implements InputInterface
      * @param string
      * @return mixed
      */
-    public function getParams($key = null, $default = null)
+    public function getParam($key, $default = null)
     {
-        if (is_null($key)) {
-
-            return $this->params;
-
-        } elseif (isset($this->params[$key])) {
-
-            return $this->params[$key];
-        }
-
-        return $default;
+        return isset($this->params[$key]) ? $this->params[$key] : $default;
     }
 
     /**
      * Set a new param
      *
      * @param $key
-     * @param $param
+     * @param null $param
      */
-    public function setParams($key = null, $param = null)
+    public function setParam($key, $param = null)
     {
-        if (is_null($key)) {
+        $this->params[$key] = $param;
+    }
 
-            $this->params = $param;
+    /**
+     * Get all params
+     *
+     * @return array
+     */
+    public function getParams()
+    {
+        return $this->params;
+    }
 
-        } else {
-
-            $this->params[$key] = $param;
-
-        }
+    /**
+     * Set all params
+     *
+     * @param array $params
+     */
+    public function setParams(array $params = [])
+    {
+        $this->params = $params;
     }
 
 }

@@ -20,6 +20,8 @@ class HttpFactory
         $filteredInput = $this->filterArray($rawInput);
 
         $inputObject->setParams($filteredInput);
+
+        return $inputObject;
     }
 
     /**
