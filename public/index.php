@@ -1,18 +1,24 @@
 <?php
 
-
 define('DEPLOYABLE_ROOT', __DIR__ . '/../');
 
 require_once DEPLOYABLE_ROOT.'src/helpers.php';
 
 /**
- * Composer autoloader
+ * Require Composer autoloader
  */
 $autoloader = DEPLOYABLE_ROOT.'vendor/autoload.php';
 
-if (file_exists($autoloader)) {
+if (!file_exists($autoloader)) {
     view('error.php', ['error' => 'Run composer install.']);
     exit;
 }
 
-require $autoloader;
+require_once $autoloader;
+
+/**
+ * Run the application
+ */
+require_once DEPLOYABLE_ROOT.'src/app.php';
+
+view('stats.php', ['message' => 'Deployable is running...']);

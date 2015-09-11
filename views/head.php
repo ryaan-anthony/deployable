@@ -1,5 +1,5 @@
 <script>
-    console.log('Welcome to Deployable.');
+    console.log('<?php echo $message ?>');
 </script>
 <style>
     * {font-family: "Courier New", Courier, monospace;}

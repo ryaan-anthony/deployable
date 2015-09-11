@@ -10,11 +10,10 @@ interface State
     public function begin();
 
     /**
-     * Process input
-     * @param Input $input
+     * Process a request
      * @return
      */
-    public function touch(Input $input);
+    public function touch();
 
     /**
      * Handle exceptions
