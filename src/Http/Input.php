@@ -2,44 +2,58 @@
 namespace Deployable\Http;
 
 use Deployable\Contracts\Input as InputInterface;
-class Input implements InputInterface
+abstract class Input implements InputInterface
 {
     /**
      * @var array
      */
-    protected $input;
+    protected $params;
 
     /**
      * Initialize the raw input
      *
      * @param array
      */
-    public function __construct(array $input = [])
-    {
-        $this->input = $input;
-    }
+    abstract public function __construct(array $request = []);
 
     /**
-     * Get an input value
+     * Get an input param
      *
      * @param $key
      * @param string
      * @return mixed
      */
-    public function getValue($key, $default = '')
+    public function getParams($key = null, $default = null)
     {
-        return isset($this->input[$key]) ? $this->input[$key] : $default;
+        if (is_null($key)) {
+
+            return $this->params;
+
+        } elseif (isset($this->params[$key])) {
+
+            return $this->params[$key];
+        }
+
+        return $default;
     }
 
     /**
-     * Set a new value
+     * Set a new param
      *
      * @param $key
-     * @param $value
+     * @param $param
      */
-    public function setValue($key, $value)
+    public function setParams($key = null, $param = null)
     {
-        $this->input[$key] = $value;
+        if (is_null($key)) {
+
+            $this->params = $param;
+
+        } else {
+
+            $this->params[$key] = $param;
+
+        }
     }
 
 }

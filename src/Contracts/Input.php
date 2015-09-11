@@ -8,23 +8,23 @@ interface Input
      *
      * @param array
      */
-    public function __construct(array $input = []);
+    public function __construct(array $request = []);
 
     /**
-     * Get an input value
+     * Get an input param
      *
      * @param $key
      * @param string
      * @return mixed
      */
-    public function getValue($key, $default = '');
+    public function getParams($key = null, $default = null);
 
     /**
-     * Set a new value
+     * Set a new param
      *
      * @param $key
-     * @param $value
+     * @param $param
      */
-    public function setValue($key, $value);
+    public function setParams($key = null, $param = null);
 
 }
