@@ -37,8 +37,8 @@ class HttpFactory
     protected function getInputClass()
     {
         return php_sapi_name() == "cli" ?
-            "Deployable\\Http\\ConsoleInput" :
-            "Deployable\\Http\\Input";
+            "Deployable\\Http\\Input\\Console" :
+            "Deployable\\Http\\Input\\Web";
     }
 
 }
