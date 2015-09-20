@@ -3,26 +3,21 @@
 /**
  * Bootstrap the Application
  */
-require_once __DIR__ . '/../bootstrap/autoload.php';
+require_once __DIR__ . '/bootstrap/autoload.php';
 
 use Deployable\App;
-use Deployable\Http\Input\Web as WebInput;
-use Deployable\Http\Output\Web as WebOutput;
+use Deployable\Http\Input\Cli as CliInput;
+use Deployable\Http\Output\Cli as CliOutput;
 
 /**
  * Create the Input object
  */
-$input = new WebInput($_REQUEST);
+$input = new CliInput($argv);
 
 /**
  * Create the Output object
  */
-$output = new WebOutput();
-
-/**
- * Set the response template
- */
-$output->setTemplate(__DIR__ . '/../views/index.html.php');
+$output = new CliOutput();
 
 /**
  * Create the Application

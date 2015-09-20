@@ -1,6 +1,7 @@
 <?php
 namespace Deployable\Contracts;
 
+// todo implement
 interface State
 {
 

@@ -1,5 +1,12 @@
+<?php
+/**
+ * Html head template
+ *
+ * @var Deployable\Http\Output\Web $this
+ */
+?>
 <script>
-    console.log('<?php echo $message ?>');
+    <?php echo $this->getMessages('console.log("%s");') ?>
 </script>
 <style>
     * {font-family: "Courier New", Courier, monospace;}

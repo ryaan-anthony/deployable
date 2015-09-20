@@ -2,6 +2,7 @@
 namespace Deployable\Http;
 
 use Deployable\Contracts\Input as InputInterface;
+
 abstract class Input implements InputInterface
 {
     /**
@@ -14,7 +15,12 @@ abstract class Input implements InputInterface
      *
      * @param array
      */
-    abstract public function __construct(array $request = []);
+    public function __construct(array $request = [])
+    {
+        $filteredRequest = $this->filterParams($request);
+
+        $this->setParams($filteredRequest);
+    }
 
     /**
      * Get an input param
@@ -57,6 +63,15 @@ abstract class Input implements InputInterface
     public function setParams(array $params = [])
     {
         $this->params = $params;
+    }
+
+    /**
+     * @param array $args
+     * @return array
+     */
+    protected function filterParams(array $args = [])
+    {
+        return filter_var_array($args, FILTER_SANITIZE_STRING);
     }
 
 }

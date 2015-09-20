@@ -1,5 +1,5 @@
 <?php
-namespace Deployable\Contracts;
+namespace Deployable;
 
 class Halt extends \RuntimeException
 {
