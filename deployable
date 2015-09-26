@@ -8,6 +8,7 @@ require_once __DIR__ . '/bootstrap/autoload.php';
 use Deployable\App;
 use Deployable\Http\Input\Cli as CliInput;
 use Deployable\Http\Output\Cli as CliOutput;
+use Deployable\Config\Reader\Xml;
 
 /**
  * Create the Input object
@@ -20,9 +21,14 @@ $input = new CliInput($argv);
 $output = new CliOutput();
 
 /**
+ * Create the config reader
+ */
+$config = new Xml();
+
+/**
  * Create the Application
  */
-$app = new App();
+$app = new App($config);
 
 /**
  * Run the Application
