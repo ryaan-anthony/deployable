@@ -20,20 +20,11 @@ trait Messages
 
     /**
      * Provide messages
-     * @param string $format of message
-     * @return string
+     * @return array
      */
-    public function getMessages($format = '%s')
+    public function getMessages()
     {
-        $messages = '';
-
-        foreach ($this->messages as $message) {
-
-            $messages .= sprintf($format, $message) . PHP_EOL;
-
-        }
-
-        return $messages;
+        return $this->messages;
     }
 
 }

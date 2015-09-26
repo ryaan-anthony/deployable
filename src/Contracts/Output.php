@@ -11,10 +11,9 @@ interface Output
 
     /**
      * Provide messages
-     * @param string $format of message
-     * @return string
+     * @return array
      */
-    public function getMessages($format = '%s');
+    public function getMessages();
 
     /**
      * Display the output

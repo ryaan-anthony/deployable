@@ -13,7 +13,9 @@ class Cli extends Output
      */
     public function __toString()
     {
-        return $this->getMessages();
+        $messages = $this->getMessages();
+
+        return implode(PHP_EOL, $messages) . PHP_EOL;
     }
 
 }

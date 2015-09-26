@@ -13,7 +13,11 @@
 <body>
     <main>
         <div class="container">
-            <ul><?php echo $this->getMessages('<li>%s</li>') ?></ul>
+            <ul>
+                <?php foreach ($this->getMessages() as $message): ?>
+                <li><?php echo $message ?></li>
+                <?php endforeach ?>
+            </ul>
         </div>
     </main>
 </body>
