@@ -31,9 +31,19 @@ class App
 
         $config = $xmlReader->fromFile('../config/builds.xml');
 
-        dd($config);
+        $builds = $this->buildList($config['build']);
 
-        // todo - do stuff with user input
+        foreach ($builds as $build) {
+
+            $output->addMessage('<a href="'.$build['url'].'">'.$build['name'].'</a>');
+
+        }
     }
+
+    protected function buildList(array $list = [])
+    {
+        return isset($list[0]) ? $list : [$list];
+    }
+
 
 }
