@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<builds xsi:noNamespaceSchemaLocation="schemas/builds.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <build name="Test Application" active="true">
+        <url>https://github.com/ryaan-anthony/test-application.git</url>
+        <instructions>
+            <setup cmd="composer install"/>
+            <setup cmd="phpunit"/>
+        </instructions>
+    </build>
+</builds>
