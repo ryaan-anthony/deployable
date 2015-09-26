@@ -44,7 +44,7 @@ class App
 
         foreach ($builds as $build) {
 
-            $output->addMessage($build['name'] . ' | ' . $build['url']);
+            $output->addMessage($build['name']);
 
         }
     }

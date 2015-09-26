@@ -6,21 +6,20 @@
                 <xs:element name="build" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="url" type="xs:string" />
-                            <xs:element name="instructions">
+                            <xs:element name="artifact">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="setup" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:element name="setup" minOccurs="1" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:attribute name="cmd" type="xs:string" />
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
+                                    <xs:attribute name="cmd" type="xs:string" />
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
                         <xs:attribute name="name" type="xs:string" />
-                        <xs:attribute name="active" type="xs:boolean" />
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
