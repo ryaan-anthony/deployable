@@ -12,7 +12,7 @@ use Deployable\Http\Output\Web as WebOutput;
 /**
  * Create the Input object
  */
-$input = new WebInput($_REQUEST);
+$input = new WebInput($_POST + $_GET);
 
 /**
  * Create the Output object
