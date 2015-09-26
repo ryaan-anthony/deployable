@@ -3,6 +3,9 @@ namespace Deployable;
 
 use Deployable\Contracts\Input;
 use Deployable\Contracts\Output;
+use Zend\Config\Reader\Xml;
+
+if (!function_exists('dd')) {function dd() {echo '<pre>';var_dump(func_get_args());die;}}
 
 class App
 {
@@ -23,6 +26,12 @@ class App
             $output->addMessage($key . ' | ' . $value);
 
         }
+
+        $xmlReader = new Xml();
+
+        $config = $xmlReader->fromFile('../config/builds.xml');
+
+        dd($config);
 
         // todo - do stuff with user input
     }
